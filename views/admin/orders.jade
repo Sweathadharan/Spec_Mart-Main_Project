@@ -1,0 +1,53 @@
+extends admin
+
+block details
+    .table-responsive
+        table.table.table-condensed
+
+            thead
+                tr
+                    td #
+                    td Date
+                    td Status
+                    td Total
+                    td Right Eye Power
+                    td Left Eye Power
+                    
+            tbody
+                each order in orders
+                    tr
+                        td= order.OrderID
+                        td= order.OrderDate
+                        td= order.Status
+                        td= ' Rs' + order.Total
+                        td
+  
+
+                            form.dev-form(action='/admin/orders/' + order.OrderID, method='GET')
+                                button.order-btn.btn.btn-default(type='submit')
+                                    i.fa.fa-eye
+                                    = ' View'
+                            form.dev-form(action='/admin/orders/' + order.OrderID + '/update', method='GET')
+                                button.order-btn.btn.btn-default(type='submit')
+                                    i.fa.fa-list
+                                    = ' Update status'
+
+            //- form(action='/admin/orders/', method='GET')
+            //- button(type='submit')
+            //-     = ' Query'
+
+            form(id='eye-test', action='/orders/res/', method='POST')
+                //- input(type='text', style=" height: 40px; width:480px",name='datevalue' )
+                button.btn.btn-default(type='submit') Report Generation
+                
+                //- link(type='text/css', href='css/ui-lightness/jquery-ui-1.9.1.custom.min.css',  rel='stylesheet')
+                //- script(src='js/jquery-1.8.2.js', type='text/javascript')
+                //- script(src='js/jquery-ui-1.9.1.custom.min.js', type='text/javascript')
+                //- script(src='js/i18n/jquery-ui-i18n.min.js', type='text/javascript')
+                //- script
+                //- $(function() {
+                //-     $.datepicker.setDefaults(
+                //-     $.extend($.datepicker.regional[""])
+                //-     );
+                //-     $("#datepicker").datepicker();
+                //- });

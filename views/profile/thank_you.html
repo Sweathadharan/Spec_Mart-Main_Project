@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Please wait while you're redirected</title>
+<style>
+#login-redirect{background:#f1f1f1;font-family:Helvetica,Arial,sans-serif}#login-redirect-container{width:500px;margin:130px auto 0;background:#fff;border:1px solid #b5b5b5;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;text-align:center}#login-redirect-container h1{font-size:24px;color:#5f5f5f;font-weight:normal;margin:22px 0 26px 0;padding:0}#login-redirect-container p{font-size:13px;color:#454545;margin:0 0 12px 0;padding:0;}#login-redirect-container img{margin:0 0 35px 0;padding:0}.ajaxLoader{margin:80px 153px}
+</style>
+<script type="text/javascript">
+	
+function timedText()
+{
+	setTimeout('msg1()', 6000);
+	setTimeout('msg2()', 12000);
+	/*window.location.href = "http://galaxybs.com";*/
+
+	}
+
+function msg1() {
+	document.getElementById('login-redirect-message').firstChild.nodeValue = "Accepting the Project requests...";
+}
+
+function msg2() {
+	document.getElementById('login-redirect-message').firstChild.nodeValue = "Redirecting...";
+		 window.history.go(-2);
+}
+ 
+</script></head>
+
+<body id="login-redirect" >
+
+	<div id="login-redirect-container"><br>
+<div style="background-color:#F12A43; padding-top:40px;"><img src="http://new.clickmyproject.com/image/catalog/logo.png" alt="..."></div>
+		<h1>Thanks for showing your interest!</h1>
+        <p>Our team will go through your Project on Demand request and revert back soon</p>
+		<p class="login-redirect-message" id="login-redirect-message" style="color:#F12A43;">Redirecting...</p>
+<script type="text/javascript">timedText()</script>		<img src="login-redirection-loader.gif" alt="...">
+	</div></body>
+	
+	</html>

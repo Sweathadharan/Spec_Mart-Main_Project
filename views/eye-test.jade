@@ -1,0 +1,147 @@
+extends layout
+
+block content
+    
+    #contact-page.container
+        .bg
+            .row
+                .col-sm-12
+                    h2.title.text-center
+                        | Eye 
+                        strong= ' Test'
+            .row
+                .col-sm-4
+                    .contact-info
+                        //- h2.title.text-center Address
+                        
+                          
+            
+
+
+                .col-sm-4
+                    .contact-info
+                       
+                            
+                .panel.panel-default
+                                .panel-heading
+                                    h4.panel-title
+                                        a(href='/quiz') Digital Eye Strain Test
+                                    .h3eyee What is digital eye strain?
+                                    .peye
+                                        | The eye fatigue or temporary discomfort in the eyes which is caused after two or more hours of digital device use, is called digital eye strain.
+                                    .peye
+                                        | Constant use of electronic devices like smartphones, computers, tablets, and gaming systems is the main cause of Digital Eye Strain
+                                      .h3eye  
+                                        | Symptoms of digital eye strain test
+                                    ul 
+                                      .lieye |Eye fatigue
+                                      .lieye | Headaches
+                                      .lieye   | Red, dry or irritated eyes
+                                       .lieye  | Back, neck and shoulder pain
+                                       .lieye | Blurred vision
+
+
+
+                                        
+
+
+                
+                .col-sm-4
+                    .contact-info
+
+                    
+                            form(id='eye-test', action='/eye-test', method='POST')
+                                input(type='text', style=" height: 40px; width:480px",name='fullName'  placeholder='1.How long can you work on your digital device without any discomfort?' required=true)
+                                input(type='text', style=" height: 40px; width:480px",name='email', placeholder='2.Do you have headaches when reading and doing work on digital devices?' required=true)
+                                input(type='text', style=" height: 40px; width:480px", name='streetAddress', placeholder='3.If you have headaches while using digital devices, how severe is it?' required=true)
+                                input(type='text', style=" height: 40px; width:480px", name='postcode', placeholder='4.Do your eyes ache while using digital device?' required=true)
+                                input(type='text', style=" height: 40px; width:480px", name='city', placeholder='5.Does the reading material become blurry when you work on digital devices?' required=true)
+                                input(type='text', style=" height: 40px; width:480px",name='country', placeholder='6.Do you have Double vision while reading or doing work on digital devices?' required=true)
+                                input(type='text', style=" height: 40px; width:480px",name='phone', placeholder='7.Do you feel eyestrain while you use digital device?' required=true)
+                                input(type='text', style=" height: 40px; width:480px",name='username', placeholder='8.Do your eyes burn while you work on digital devices?' required=true)
+                                input(type='password', name='password', placeholder='Password' required=true)
+                                input(type='password', name='rePassword', placeholder='Password again' required=true)
+                                button.btn.btn-default(type='submit' onclick='clickme()') Submit
+                                            //- button.btn.btn-default(type='submit' onclick='clickme()')  Submit
+                                script.
+                                    function clickme() {
+                                        let rand = Math.random() * 2;
+                                        console.log(rand); // say 99.81321410836433
+
+                                        rand = Math.floor(rand); // 99
+                                        if (rand == 0){
+                                            alert("Not Severe")
+                                        }
+                                        else{
+                                            alert("Severe consult the doctor")
+                                        }
+                                        }
+                
+                        //- h2.title.text-center Contact Info
+                        //- <p>1.How long can you work on your digital device without any discomfort?</p>                   
+                        //- select#states(form='addProperty', name='propertyType') 
+                        //-     option(value='0') -- Select A option--
+                        //-     option(value='1') More than 3 hrs                               
+                        //-     option(value='2') Upto 2 hrs
+                        //-     option(value='3') Upto 1 hr
+                        //-     option(value='4') Upto 30 min
+
+                        //- <p>2.Do you have headaches when reading and doing work on digital devices?</p>                   
+                        //- select#states(form='addProperty', name='propertyType') 
+                        //-     option(value='0') -- Select A option--
+                        //-     option(value='1') Never (<5%)                                                      
+                        //-     option(value='2') Infrequent (5-10 %)
+                        //-     option(value='3') Sometimes (10- 20 %) 
+                        //-     option(value='4') Often (Upto 50%)
+
+                        //- <p>3.If you have headaches while using digital devices, how severe is it?</p>                   
+                        //- select#states(form='addProperty', name='propertyType') 
+                        //-     option(value='0') -- Select A option--
+                        //-     option(value='1') NO
+                        //-     option(value='2') Mild
+                        //-     option(value='3') Moderate 
+                        //-     option(value='4') severe
+
+                        //- <p>4.Do your eyes ache while using digital device?</p>                   
+                        //- select#states(form='addProperty', name='propertyType') 
+                        //-     option(value='0') -- Select A option--
+                        //-     option(value='1') Never (<5%)  
+                        //-     option(value='2') Infrequent (5-10 %)
+                        //-     option(value='3') Sometimes (10- 20 %)
+                        //-     option(value='4') Often (Upto 50%)
+
+                        //- <p>5.Does the reading material become blurry when you work on digital devices?</p>                   
+                        //- select#states(form='addProperty', name='propertyType') 
+                        //-     option(value='0') -- Select A option--
+                        //-     option(value='1') Never (<5%)   
+                        //-     option(value='2') Infrequent (5-10 %)
+                        //-     option(value='3') Sometimes (10- 20 %)
+                        //-     option(value='4') Often (Upto 50%)
+
+                        //- <p>6.Do you have Double vision while reading or doing work on digital devices?</p>                   
+                        //- select#states(form='addProperty', name='propertyType') 
+                        //-     option(value='0') -- Select A option--
+                        //-     option(value='1') Never (<5%)  
+                        //-     option(value='2') Infrequent (5-10 %)
+                        //-     option(value='3') Sometimes (10- 20 %)
+                        //-     option(value='4') Often (Upto 50%)
+
+                        //- <p>7.Do you feel eyestrain while you use digital device?</p>                   
+                        //- select#states(form='addProperty', name='propertyType') 
+                        //-     option(value='0') -- Select A option--
+                        //-     option(value='1') Never (<5%)  
+                        //-     option(value='2') Infrequent (5-10 %)
+                        //-     option(value='3') Sometimes (10- 20 %)
+                        //-     option(value='4') Often (Upto 50%)
+
+                        //- <p>8.Do your eyes burn while you work on digital devices?</p>                   
+                        //- select#states(form='addProperty', name='propertyType') 
+                        //-     option(value='0') -- Select A option--
+                        //-     option(value='1') Never (<5%)  
+                        //-     option(value='2') Infrequent (5-10 %)
+                        //-     option(value='3') Sometimes (10- 20 %)
+                        //-     option(value='4') Often (Upto 50%)
+
+  
+
+              

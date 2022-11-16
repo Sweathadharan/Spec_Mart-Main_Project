@@ -1,0 +1,47 @@
+extends admin
+
+block details
+    .table-responsive
+        table.table.table-condensed
+            thead
+                tr
+                    td #
+                    
+                    td Fullname
+                    td Mobile number
+                    td Product ID
+                    td Category ID
+                    td Stock
+                    td Price
+                    
+            tbody
+                each supplier in suppliers
+                    tr
+                        td= supplier.supplier_id
+                        td= supplier.supplier_name
+                        td= supplier.mobile_no
+                        td= supplier.ProductID
+                        td= supplier.CategoryID
+                        td= supplier.stocks
+                        td= supplier.price
+                        
+                           //-                          //td
+                           //-  a.btn.btn-default(href='/admin/supplier/' + supplier.supplier_id)
+                           //-      i.fa.fa-eye
+                           //-      = ' View'
+                        //- td
+                        //-     if supplier.Admin == 0
+                        //-         form.dev-form(action='/admin/supplier/' + supplier.supplier_id + '/makeAdmin', method='POST')
+                        //-             button.cus-btn.btn.btn-default(type='submit')
+                        //-                 i.fa.fa-unlock
+                        //-                 = ' Make Admin'
+                        //-     else
+                        //-         form.dev-form(action='/admin/supplier/' + supplier.supplier_id + '/removeAdmin', method='POST')
+                        //-             button.cus-btn.btn.btn-default(type='submit')
+                        //-                 i.fa.fa-lock
+                        //-                 = ' Remove Admin'
+                        td
+                            form.dev-form(action='/admin/supplier/' + supplier.supplier_id + '/delete', method='POST')
+                                button.cus-btn.btn.btn-default(type='submit')
+                                    i.fa.fa-trash-o
+                                    = ' Delete'
