@@ -10,8 +10,8 @@ block details
                     td Date
                     td Status
                     td Total
-                    td Right Eye Power
-                    td Left Eye Power
+                    //- td Right Eye Power
+                    //- td Left Eye Power
                     
             tbody
                 each order in orders
@@ -20,7 +20,9 @@ block details
                         td= order.OrderDate
                         td= order.Status
                         td= ' Rs' + order.Total
-                        td
+
+                
+           
   
 
                             form.dev-form(action='/admin/orders/' + order.OrderID, method='GET')
@@ -32,6 +34,7 @@ block details
                                     i.fa.fa-list
                                     = ' Update status'
 
+   
             //- form(action='/admin/orders/', method='GET')
             //- button(type='submit')
             //-     = ' Query'

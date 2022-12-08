@@ -1,0 +1,86 @@
+//- extends layout
+
+//- block content
+//-     section#form
+//-         //form
+//-         .container
+//-             .row
+//-                 .col-sm-3
+//-                     // nav-bar
+//-                     //- .left-sidebar
+//-                     //-     #accordian.panel-group.category-products
+//-                     //-         .panel.panel-default
+//-                     //-             .panel-heading
+//-                     //-                 h4.panel-title
+//-                     //-                     a(href='/sign-in') Sign in
+//-                     //-         .panel.panel-default
+//-                     //-             .panel-heading
+//-                     //-                 h4.panel-title
+//-                     //-                     a(href='/sign-up') Sign up
+//-                     ///nav-bar
+//-                 .col-sm-5.text-center
+//-                     //sign up form
+//-                     .signup-form
+//-                         h2 Franchise!
+                       
+//-                         form(id='franchise', action='/franchise', method='POST')
+//-                             input(type='text', name='Franchise_name' placeholder='Franchise Name' required=true)
+//-                             input(type='text', name='mobile_no', placeholder='Moblie No' required=true)
+//-                             input(type='text', name='address', placeholder=' Address' required=true)
+
+                            
+//-                             button.btn.btn-default(type='submit') Submit
+//-                     ///sign up form
+//-     ///form
+
+
+
+
+
+
+extends admin
+
+block details
+    .table-responsive
+        table.table.table-condensed
+            thead
+                tr
+                    td #
+                    
+                    td Franchise name
+                    td mobile number
+                    td address
+                    td city
+                    td state
+                   
+                    
+            tbody
+                each franchise in franchises
+                    tr
+                        td= franchise.id
+                        td= franchise.name
+                        td= franchise.mobileno
+                        td= franchise.address
+                        td= franchise.city
+                        td= franchise.state
+                        
+                           //-                          //td
+                           //-  a.btn.btn-default(href='/admin/supplier/' + supplier.supplier_id)
+                           //-      i.fa.fa-eye
+                           //-      = ' View'
+                        //- td
+                        //-     if supplier.Admin == 0
+                        //-         form.dev-form(action='/admin/supplier/' + supplier.supplier_id + '/makeAdmin', method='POST')
+                        //-             button.cus-btn.btn.btn-default(type='submit')
+                        //-                 i.fa.fa-unlock
+                        //-                 = ' Make Admin'
+                        //-     else
+                        //-         form.dev-form(action='/admin/supplier/' + supplier.supplier_id + '/removeAdmin', method='POST')
+                        //-             button.cus-btn.btn.btn-default(type='submit')
+                        //-                 i.fa.fa-lock
+                        //-                 = ' Remove Admin'
+                        td
+                            form.dev-form(action='/admin/franchise/' + franchise.id + '/delete', method='POST')
+                                button.cus-btn.btn.btn-default(type='submit')
+                                    i.fa.fa-trash-o
+                                    = ' Delete'

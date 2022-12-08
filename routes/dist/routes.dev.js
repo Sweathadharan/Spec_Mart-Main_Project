@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var express = require('express');
 
@@ -14,7 +14,8 @@ router.all('/', function (req, res, next) {
         SELECT *\
         FROM Categories';
   RunQuery(sqlStr, function (categories) {
-    sqlStr = '\
+    sqlStr =
+      '\
             SELECT Products.*, Categories.CategoryName, Categories.CategorySlug\
             FROM Products\
             INNER JOIN Categories\
@@ -26,7 +27,7 @@ router.all('/', function (req, res, next) {
         title: 'Home',
         categories: categories,
         featProducts: products,
-        customer: req.user
+        customer: req.user,
       }; //isLoggedIn(req, contextDict);
 
       res.render('index', contextDict);
@@ -44,7 +45,7 @@ router.route('/cat/').all(function (req, res, next) {
       currentUrl: '/cat',
       title: 'Categories',
       categories: categories,
-      customer: req.user
+      customer: req.user,
     };
     res.render('categories', contextDict);
   });
@@ -70,9 +71,9 @@ router.post('/orders/res/kl', function (req, res) {
       currentUrl: '/res/kl',
       title: 'Search',
       emb: emb,
-      customer: req.Status
+      customer: req.Status,
     };
-    console.log("CUSTOMER-----------------------------");
+    console.log('CUSTOMER-----------------------------');
     console.log(contextDict.emb);
     res.render('admin/result', contextDict);
   }); // res.render('admin/base');
@@ -85,7 +86,8 @@ router.post('/orders/res/kl', function (req, res) {
 router.route('/orders/mm/').all(function (req, res, next) {
   // var datval = req.params.datevalue
   // console.log(datval)
-  var sqlStr = '\
+  var sqlStr =
+    '\
               SELECT *\
               FROM orders WHERE OrderDate = "2022-11-09" ';
   RunQuery(sqlStr, function (emb) {
@@ -93,9 +95,9 @@ router.route('/orders/mm/').all(function (req, res, next) {
       currentUrl: '/mm',
       title: 'Search',
       emb: emb,
-      customer: req.Status
+      customer: req.Status,
     };
-    console.log("CUSTOMER-----------------------------");
+    console.log('CUSTOMER-----------------------------');
     console.log(contextDict.emb);
     res.render('admin/result', contextDict);
   });
@@ -116,8 +118,9 @@ router.route('/orders/mm/').all(function (req, res, next) {
 /* Route Category Products page. */
 
 router.route('/cat/:catSlug').all(function (req, res, next) {
-  if (req.params.catSlug == "all") {
-    var selectQuery = '\
+  if (req.params.catSlug == 'all') {
+    var selectQuery =
+      '\
                 SELECT Products.*, Categories.CategoryName, Categories.CategorySlug\
                 FROM Products\
                 INNER JOIN Categories\
@@ -131,18 +134,21 @@ router.route('/cat/:catSlug').all(function (req, res, next) {
           title: 'All products',
           products: products,
           categories: categories,
-          customer: req.user
+          customer: req.user,
         };
         res.render('categoryProducts', contextDict);
       });
     });
   } else {
-    var sqlStr = '\
+    var sqlStr =
+      "\
                 SELECT Products.*, Categories.CategoryName, Categories.CategorySlug\
                 FROM Products\
                 INNER JOIN Categories\
                 ON Products.CategoryID = Categories.CategoryID\
-                WHERE Categories.CategorySlug = \'' + req.params.catSlug + '\'';
+                WHERE Categories.CategorySlug = '" +
+      req.params.catSlug +
+      "'";
     RunQuery(sqlStr, function (products) {
       sqlStr = '\
                 SELECT *\
@@ -152,7 +158,7 @@ router.route('/cat/:catSlug').all(function (req, res, next) {
           title: products[0].CategoryName,
           products: products,
           categories: categories,
-          customer: req.user
+          customer: req.user,
         };
         res.render('categoryProducts', contextDict);
       });
@@ -162,23 +168,29 @@ router.route('/cat/:catSlug').all(function (req, res, next) {
 /* Route Product page. */
 
 router.route('/cat/:catSlug/:prodSlug').all(function (req, res, next) {
-  var sqlStr = '\
+  var sqlStr =
+    "\
         SELECT *\
         FROM Products\
-        WHERE ProductSlug = \'' + req.params.prodSlug + '\'';
+        WHERE ProductSlug = '" +
+    req.params.prodSlug +
+    "'";
   RunQuery(sqlStr, function (product) {
     var contextDict = {
       title: product[0].ProductName,
       product: product[0],
-      customer: req.user
+      customer: req.user,
     };
     res.render('productDetail', contextDict);
   });
 });
 router.route('/subscribe').post(function (req, res, next) {
-  var sqlStr = '\
+  var sqlStr =
+    "\
         INSERT INTO Subscribers\
-        VALUES (\'' + req.body.email + '\')';
+        VALUES ('" +
+    req.body.email +
+    "')";
   RunQuery(sqlStr, function (result) {
     res.redirect('/');
   });

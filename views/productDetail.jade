@@ -53,11 +53,17 @@ block content
                                 span
                                     span= ' Rs' + product.ProductPrice
                                     form(action='/cart/' + product.ProductID + '/add', method='POST')
+                                        br
                                         label Quantity:
                                             input(type='text', name='quantity', value='1')
                                         br
+                                        //- label(for='right_eye') Right eye
+                                        //-     input(type='text', id='right_eye', name='right_eye')
+                                        //- br
+                                        //- label(for='left_eye') Left eye
+                                        //-      input(type='text', name='left_eye', id='left_eye')
 
-                                        
+                                        br
                                         button.btn.btn-default.add-to-cart(type='submit')
                                             i.fa.fa-shopping-cart
                                             | Add to cart
@@ -65,21 +71,13 @@ block content
 
                                 a(href='')
                                     img.share.img-responsive(src='images/product-details/share.png', alt='')
-                                    h3.eye Kindly Enter Your Eye Power
+                                    //- h3.eye Kindly Enter Your Eye Power
                                 
                                 form.dev-form(action='/admin/orders/', method='POST')
                             .col-sm-1.clearfix
                             .col-sm-5.clearfix
-                                label(for='right_eye') Right eye
-                                input(type='text', id='right_eye', name='right_eye')
-                                br
-                                label(for='left_eye') Left eye
-                                input(type='text', name='left_eye', id='left_eye')
-                                br
-                               
-                                br
-                                br
-                                input.dev-btn.btn.btn-default.add-to-cart(type='submit', value='submit')
+                                
+                                //- input.dev-btn.btn.btn-default.add-to-cart(type='submit', value='submit')
 
                         ///product-information
                     ///product-details

@@ -1,47 +1,71 @@
+
+
 extends admin
 
 block details
     .table-responsive
         table.table.table-condensed
+
             thead
                 tr
                     td #
-                    
                     td Fullname
+                    td Email
                     td Mobile number
                     td Product ID
                     td Category ID
                     td Stock
                     td Price
+                    td Date 
+                    td Time
                     
             tbody
                 each supplier in suppliers
                     tr
-                        td= supplier.supplier_id
-                        td= supplier.supplier_name
+                        td= supplier.id
+                        td= supplier.name
+                        td= supplier.email
                         td= supplier.mobile_no
                         td= supplier.ProductID
                         td= supplier.CategoryID
+                        td= supplier.Product_name
                         td= supplier.stocks
                         td= supplier.price
-                        
-                           //-                          //td
-                           //-  a.btn.btn-default(href='/admin/supplier/' + supplier.supplier_id)
-                           //-      i.fa.fa-eye
-                           //-      = ' View'
-                        //- td
-                        //-     if supplier.Admin == 0
-                        //-         form.dev-form(action='/admin/supplier/' + supplier.supplier_id + '/makeAdmin', method='POST')
-                        //-             button.cus-btn.btn.btn-default(type='submit')
-                        //-                 i.fa.fa-unlock
-                        //-                 = ' Make Admin'
-                        //-     else
-                        //-         form.dev-form(action='/admin/supplier/' + supplier.supplier_id + '/removeAdmin', method='POST')
-                        //-             button.cus-btn.btn.btn-default(type='submit')
-                        //-                 i.fa.fa-lock
-                        //-                 = ' Remove Admin'
-                        td
-                            form.dev-form(action='/admin/supplier/' + supplier.supplier_id + '/delete', method='POST')
-                                button.cus-btn.btn.btn-default(type='submit')
-                                    i.fa.fa-trash-o
-                                    = ' Delete'
+                        td= supplier.date
+                        td= supplier.time
+
+                
+           
+  
+
+                            form.dev-form(action='/admin/supplier/' + supplier.supplier_id, method='GET')
+                                button.order-btn.btn.btn-default(type='submit')
+                                    i.fa.fa-eye
+                                    = ' View'
+                            form.dev-form(action='/admin/supplier/' + supplier.supplier_id+ '/update', method='GET')
+                                button.order-btn.btn.btn-default(type='submit')
+                                    i.fa.fa-list
+                                    = ' Update status'
+
+   
+            //- form(action='/admin/supplier/', method='GET')
+            //- button(type='submit')
+            //-     = ' Query'
+
+            form(id='eye-test', action='/order/res/', method='POST')
+                //- input(type='text', style=" height: 40px; width:480px",name='datevalue' )
+                //- button.btn.btn-default(type='submit') Report Generation
+                a(href='http://localhost/supp/sup.php') Report Generation
+
+                
+                //- link(type='text/css', href='css/ui-lightness/jquery-ui-1.9.1.custom.min.css',  rel='stylesheet')
+                //- script(src='js/jquery-1.8.2.js', type='text/javascript')
+                //- script(src='js/jquery-ui-1.9.1.custom.min.js', type='text/javascript')
+                //- script(src='js/i18n/jquery-ui-i18n.min.js', type='text/javascript')
+                //- script
+                //- $(function() {
+                //-     $.datepicker.setDefaults(
+                //-     $.extend($.datepicker.regional[""])
+                //-     );
+                //-     $("#datepicker").datepicker();
+                //- });

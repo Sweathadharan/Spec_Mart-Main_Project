@@ -1,0 +1,34 @@
+extends admin
+
+block details
+    .table-responsive
+        table.table.table-condensed
+
+            thead
+                tr
+                    td #
+                    td Name
+                    td Mobile Number
+                    td Left Eye Power
+                    td Right  Eye Power
+                    
+                    
+            tbody
+                each eyepower in eyepowers
+                    tr
+                        td= eyepower.id
+                        td= eyepower.name
+                        td= eyepower.mobileno
+                        td= eyepower.left_eye
+                        td= eyepower.right_eye
+                
+           
+  
+                        td
+                            form.dev-form(action='/admin/eyepower/' + eyepower.id + '/delete', method='POST')
+                                button.cus-btn.btn.btn-default(type='submit')
+                                    i.fa.fa-trash-o
+                                    = ' Delete'
+              
+                
+   

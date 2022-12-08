@@ -60,7 +60,9 @@ var admin = require('./routes/admin');
 var profile = require('./routes/profile');
 var eyetest = require('./routes/eye-test');
 var supplier = require('./routes/supplier');
-// var franchise = require('./routes/franchise');
+var franchise = require('./routes/franchise');
+var appointment = require('./routes/appointment');
+var eyepower = require('./routes/eyepower');
 
 //require('./routes/users')(app, passport);
 
@@ -74,7 +76,9 @@ app.use('/admin', admin);
 app.use('/usr', profile);
 app.use('/eye-test', eyetest);
 app.use('/supplier', supplier);
-// app.use('/franchise', franchise);
+app.use('/franchise', franchise);
+app.use('/appointment', appointment);
+app.use('/eyepower', appointment);
 
 // Session-persisted message middleware
 app.use(function (req, res, next) {

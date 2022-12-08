@@ -573,4 +573,170 @@ router.route('/supplier/:id/delete').post(isAdmin, function (req, res) {
   });
 });
 
+//appointment
+
+router.route('/appointment').get(isAdmin, function (req, res) {
+  var selectQuery = '\
+              SELECT *\
+              FROM Appoint';
+
+  RunQuery(selectQuery, function (Appointments) {
+    var contextDict = {
+      title: 'Admin - Appointment',
+      Appointment: req.Appointment,
+      Appointments: Appointments,
+    };
+
+    res.render('admin/appointment', contextDict);
+  });
+});
+
+router.route('/appointment/:id/makeAdmin').post(isAdmin, function (req, res) {
+  var updateQuery =
+    '\
+              UPDATE Appoint\
+              SET Admin = 1\
+              WHERE id = ' +
+    req.params.id;
+
+  RunQuery(updateQuery, function (result) {
+    res.redirect('/admin/appointment/');
+  });
+});
+
+router.route('/appointment/:id/removeAdmin').post(isAdmin, function (req, res) {
+  var updateQuery =
+    '\
+              UPDATE Appoint\
+              SET Admin = 0\
+              WHERE id = ' +
+    req.params.id;
+
+  RunQuery(updateQuery, function (result) {
+    res.redirect('/admin/appointment/');
+  });
+});
+
+router.route('/appointment/:id/delete').post(isAdmin, function (req, res) {
+  var deleteQuery =
+    '\
+              DELETE FROM Appoint\
+              WHERE id = ' +
+    req.params.id;
+
+  RunQuery(deleteQuery, function (result) {
+    res.redirect('/admin/appointment/');
+  });
+});
+
+router.route('/franchise').get(isAdmin, function (req, res) {
+  var selectQuery = '\
+              SELECT *\
+              FROM Franchise';
+
+  RunQuery(selectQuery, function (franchises) {
+    var contextDict = {
+      title: 'Admin - franchise',
+      franchise: req.franchise,
+      franchises: franchises,
+    };
+
+    res.render('admin/franchise', contextDict);
+  });
+});
+
+router.route('/franchise/:id/makeAdmin').post(isAdmin, function (req, res) {
+  var updateQuery =
+    '\
+              UPDATE Franchise\
+              SET Admin = 1\
+              WHERE id = ' +
+    req.params.id;
+
+  RunQuery(updateQuery, function (result) {
+    res.redirect('/admin/franchise/');
+  });
+});
+
+router.route('/franchise/:id/removeAdmin').post(isAdmin, function (req, res) {
+  var updateQuery =
+    '\
+              UPDATE Franchise\
+              SET Admin = 0\
+              WHERE id = ' +
+    req.params.id;
+
+  RunQuery(updateQuery, function (result) {
+    res.redirect('/admin/franchise/');
+  });
+});
+
+router.route('/franchise/:id/delete').post(isAdmin, function (req, res) {
+  var deleteQuery =
+    '\
+              DELETE FROM Franchise\
+              WHERE id = ' +
+    req.params.id;
+
+  RunQuery(deleteQuery, function (result) {
+    res.redirect('/admin/franchise/');
+  });
+});
+
+//eye power
+
+router.route('/eyepower').get(isAdmin, function (req, res) {
+  var selectQuery = '\
+              SELECT *\
+              FROM Eyepower';
+
+  RunQuery(selectQuery, function (eyepowers) {
+    var contextDict = {
+      title: 'Admin - EyePower',
+      eyepower: req.eyepower,
+      eyepowers: eyepowers,
+    };
+
+    res.render('admin/eyepower', contextDict);
+  });
+});
+
+router.route('/eyepower/:id/makeAdmin').post(isAdmin, function (req, res) {
+  var updateQuery =
+    '\
+              UPDATE Eyepower\
+              SET Admin = 1\
+              WHERE id = ' +
+    req.params.id;
+
+  RunQuery(updateQuery, function (result) {
+    res.redirect('/admin/eyepower/');
+  });
+});
+
+router.route('/eyepower/:id/removeAdmin').post(isAdmin, function (req, res) {
+  var updateQuery =
+    '\
+              UPDATE Eyepower\
+              SET Admin = 0\
+              WHERE id = ' +
+    req.params.id;
+
+  RunQuery(updateQuery, function (result) {
+    res.redirect('/admin/eyepower/');
+  });
+});
+
+router.route('/eyepower/:id/delete').post(isAdmin, function (req, res) {
+  var deleteQuery =
+    '\
+              DELETE FROM Eyepower\
+              WHERE id = ' +
+    req.params.id;
+
+  RunQuery(deleteQuery, function (result) {
+    res.redirect('/admin/eyepower/');
+  });
+});
+
 module.exports = router;

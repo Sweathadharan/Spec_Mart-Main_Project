@@ -1,0 +1,105 @@
+extends admin
+
+block details
+    .table-responsive
+        table.table.table-condensed
+            thead
+                tr
+                    td ID
+                    td User name
+                    td email
+                    td mobile no
+                    td porduct id
+                    td category id
+                    td product name
+                    td stocks
+                    td price
+                    td date 
+                    td time
+            tbody
+                each supplier in emb
+                    tr
+                        td= supplier.id
+                        td= supplier.name
+                        td= supplier.email
+                        td= supplier.mobile_no
+                        td= supplier.ProductID
+                        td= supplier.CategoryID
+                        td= supplier.Product_name
+                        td= supplier.stocks
+                        td= supplier.price
+                        td= supplier.date
+                        td= supplier.time
+
+                        //- td= customer.Email
+                        //- td= customer.Username
+                        td
+        //-                         p=category.Description
+        //-                 .col-sm-3
+        //-                         form.dev-form(action='/admin/cat/' + category.CategoryID + '/edit', method='GET')
+        //-                             button.btn.btn-default(type='submit')
+        //-                                 i.fa.fa-edit
+        //-                                 = ' Edit'
+
+        //-                         form.dev-form(action='/admin/cat/' + category.CategoryID + '/delete', method='POST')
+        //-                             button.btn.btn-default(type='submit')
+        //-                                 i.fa.fa-trash-o
+        //-                                 = ' Delete'
+        //- form(action='/admin/cat/add', method='GET')
+        //-     button.btn.btn-default(type='submit')
+        //-         i.fa.fa-plus
+        //-         = ' Add new category'
+        br
+        br
+
+
+
+
+
+
+
+//- extends admin
+
+//- block details
+//-     .table-responsive
+//-         table.table.table-condensed
+//-             thead
+//-                 tr
+//-                     td #
+//-                     td Fullname
+//-                     td Email
+//-                     td Username
+//-                     td Admin
+//-                     td
+//-             tbody
+//-                 each customer in customers
+//-                     tr
+//-                         td= customer.Status
+                        //- td= customer.FullName
+                        //- td= customer.Email
+                        //- td= customer.Username
+                        //- td
+                        //-     - var admin = 'Yes'
+                        //-     if customer.Admin == 0
+                        //-         - admin = 'No'
+                        //-     = admin
+                        //- //td
+                        //-     a.btn.btn-default(href='/admin/customers/' + customer.UserID)
+                        //-         i.fa.fa-eye
+                        //-         = ' View'
+                        //- td
+                        //-     if customer.Admin == 0
+                        //-         form.dev-form(action='/admin/customers/' + customer.UserID + '/makeAdmin', method='POST')
+                        //-             button.cus-btn.btn.btn-default(type='submit')
+                        //-                 i.fa.fa-unlock
+                        //-                 = ' Make Admin'
+                        //-     else
+                        //-         form.dev-form(action='/admin/customers/' + customer.UserID + '/removeAdmin', method='POST')
+                        //-             button.cus-btn.btn.btn-default(type='submit')
+                        //-                 i.fa.fa-lock
+                        //-                 = ' Remove Admin'
+                        //- td
+                        //-     form.dev-form(action='/admin/customers/' + customer.UserID + '/delete', method='POST')
+                        //-         button.cus-btn.btn.btn-default(type='submit')
+                        //-             i.fa.fa-trash-o
+                        //-             = ' Delete'

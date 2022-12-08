@@ -1,0 +1,48 @@
+extends admin
+
+block details
+    .table-responsive
+        table.table.table-condensed
+            thead
+                tr
+                    td #
+                    
+                    td Name
+                    td Mobile number
+                    td Date 
+                    td Time
+                    
+                                     a(href='http://localhost/supp/app.php') Report Generation
+                    
+            tbody
+                each Appointment in Appointments
+                    tr
+                        td= Appointment.id
+                        td= Appointment.name
+                        td= Appointment.mobileno
+                        td= Appointment.date
+                        td= Appointment.time
+                        
+                        
+                           //-                          //td
+                           //-  a.btn.btn-default(href='/admin/supplier/' + supplier.supplier_id)
+                           //-      i.fa.fa-eye
+                           //-      = ' View'
+                        //- td
+                        //-     if supplier.Admin == 0
+                        //-         form.dev-form(action='/admin/supplier/' + supplier.supplier_id + '/makeAdmin', method='POST')
+                        //-             button.cus-btn.btn.btn-default(type='submit')
+                        //-                 i.fa.fa-unlock
+                        //-                 = ' Make Admin'
+                        //-     else
+                        //-         form.dev-form(action='/admin/supplier/' + supplier.supplier_id + '/removeAdmin', method='POST')
+                        //-             button.cus-btn.btn.btn-default(type='submit')
+                        //-                 i.fa.fa-lock
+                        //-                 = ' Remove Admin'
+                        td
+                            form.dev-form(action='/admin/appointment/' + Appointment.id + '/delete', method='POST')
+                                button.cus-btn.btn.btn-default(type='submit')
+                                    i.fa.fa-trash-o
+                                    = ' Delete'
+
+                                    

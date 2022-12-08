@@ -18,57 +18,57 @@ function isAdmin(req, res, next) {
   res.redirect('/');
 }
 
-router.route('/supplier').get(isAdmin, function (req, res) {
+router.route('/eyepower').get(isAdmin, function (req, res) {
   var selectQuery = '\
               SELECT *\
-              FROM Users';
+              FROM Eyepower';
 
-  RunQuery(selectQuery, function (customers) {
+  RunQuery(selectQuery, function (eyepowers) {
     var contextDict = {
-      title: 'Admin - Customomer',
-      supplier: req.supplier,
-      suppliers: suppliers,
+      title: 'Admin - Eyepower',
+      eyepower: req.eyepower,
+      eyepowers: eyepowers,
     };
 
-    res.render('admin/supplier', contextDict);
+    res.render('admin/eyepower', contextDict);
   });
 });
 
-router.route('/supplier/:id/makeAdmin').post(isAdmin, function (req, res) {
+router.route('/eyepower/:id/makeAdmin').post(isAdmin, function (req, res) {
   var updateQuery =
     '\
-              UPDATE Users\
+              UPDATE Eyepower\
               SET Admin = 1\
-              WHERE UserID = ' +
+              WHERE id = ' +
     req.params.id;
 
   RunQuery(updateQuery, function (result) {
-    res.redirect('/admin/supplier/');
+    res.redirect('/admin/eyepower/');
   });
 });
 
-router.route('/supplier/:id/removeAdmin').post(isAdmin, function (req, res) {
+router.route('/eyepower/:id/removeAdmin').post(isAdmin, function (req, res) {
   var updateQuery =
     '\
-              UPDATE Users\
+              UPDATE Eyepower\
               SET Admin = 0\
-              WHERE UserID = ' +
+              WHERE id = ' +
     req.params.id;
 
   RunQuery(updateQuery, function (result) {
-    res.redirect('/admin/s/');
+    res.redirect('/admin/eyepower/');
   });
 });
 
-router.route('/supplier/:id/delete').post(isAdmin, function (req, res) {
+router.route('/eyepower/:id/delete').post(isAdmin, function (req, res) {
   var deleteQuery =
     '\
-              DELETE FROM Users\
-              WHERE UserID = ' +
+              DELETE FROM Eyepower\
+              WHERE id = ' +
     req.params.id;
 
   RunQuery(deleteQuery, function (result) {
-    res.redirect('/admin/supplier/');
+    res.redirect('/admin/eyepower/');
   });
 });
 
